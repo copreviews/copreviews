@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cop Reviews</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>Cop Reviews</h1>
+        <center>
+            <p>Welcome to cop reviews! Where you can post your review on an officer, to let others know if an officer is lenient or not. Or if you're looking for a review on your local cops.</p>
+        </center>
+        <div class="review-form">
+            <h2>Post a Review</h2>
+            <input type="text" id="name" placeholder="Name of the cop and or badge number">
+            <textarea id="review" rows="4" placeholder="Write your review" required></textarea>
+            <button onclick="submitReview()">Submit Review</button>
+        </div>
+        
+        <div class="reviews" id="reviews">
+            <!-- Reviews will appear here -->
+        </div>
+    </div>
+
+    <!-- Use defer to load the script after HTML is fully parsed -->
+    <script defer src="index.js"></script>
+</body>
+</html>
