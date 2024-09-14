@@ -1,0 +1,102 @@
+<script>
+   function submitReview() {
+            const name = document.getElementById('name').value;
+            const review = document.getElementById('review').value;
+
+            if (name && review) {
+                const reviewsDiv = document.getElementById('reviews');
+                
+                const newReview = document.createElement('div');
+                newReview.classList.add('review');
+                
+                newReview.innerHTML = `
+                    <h3>${name}</h3>
+                    <p>${review}</p>
+                `;
+                
+                reviewsDiv.prepend(newReview);
+                
+                // Clear inputs
+                document.getElementById('name').value = '';
+                document.getElementById('review').value = '';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+
+
+
+
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+    fetchReviews();
+});
+
+function fetchReviews() {
+    fetch('/api/reviews')
+        .then(response => response.json())
+        .then(data => {
+            const reviewsDiv = document.getElementById('reviews');
+            data.forEach(review => {
+                const newReview = document.createElement('div');
+                newReview.classList.add('review');
+                newReview.innerHTML = `<h3>${review.name}</h3><p>${review.review}</p>`;
+                reviewsDiv.appendChild(newReview);
+            });
+        });
+}
+
+function submitReview() {
+    const name = document.getElementById('name').value;
+    const review = document.getElementById('review').value;
+
+    if (name && review) {
+        const newReview = { name, review };
+
+        fetch('/api/reviews', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newReview)
+        })
+        .then(() => {
+            document.getElementById('name').value = '';
+            document.getElementById('review').value = '';
+            fetchReviews();
+        });
+    } else {
+        alert('Please fill in all fields.');
+    }
+}
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="styles.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cop reviews</title> 
+
+</head>
+<body>
+    <div class="container">
+        <h1>Cop reviews</h1>
+       <center><p>Welcome to cop reviews! Where you can post your review on an officer, to let others know if an officer is lenient or not. Or if you're looking for an review on your local cops</p></center>
+        <div class="review-form">
+            <h2>Post a Review</h2>
+            <input type="text" id="name" placeholder="Name of the cop" required>
+            <textarea id="review" rows="4" placeholder="Write your review" required></textarea>
+            <button onclick="submitReview()">Submit Review</button>
+        </div>
+        
+        <div class="reviews" id="reviews">
+            <!-- Reviews will appear here -->
+        </div>
+    </div>
+</body>
+</html>
