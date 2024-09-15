@@ -1,0 +1,169 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+
+.review-form {
+    background: #252525;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+    margin-bottom: 30px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #444;
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+button {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #45a049, #3e8e41);
+    transform: translateY(-2px);
+}
+
+
+.reviews {
+    margin-top: 30px;
+}
+
+.review {
+    background: #252525;
+    padding: 25px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.review:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.review h3 {
+    margin: 0;
+    color: #4CAF50;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.review p {
+    color: #b3b3b3;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.review small {
+    display: block;
+    margin-top: 15px;
+    color: #888;
+    font-size: 0.875rem;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 95%;
+        padding: 15px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .review-form {
+        padding: 20px;
+    }
+    button {
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    .review-form {
+        padding: 15px;
+    }
+    input, textarea {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    button {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    .review h3 {
+        font-size: 1.1rem;
+    }
+}
+
+
+
+
+.links {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.links a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0 5px; /* Add some spacing between the links */
+    transition: color 0.3s ease;
+}
+
+.links a:hover {
+    color: #45a049;
+}
